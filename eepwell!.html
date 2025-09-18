@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eepi!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #0d1b2a, #1b263b, #0d1b2a, #1b263b);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      font-family: "Courier New", monospace;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    
+    h1 {
+      position: absolute;
+      top: 40%;
+      font-size: 2.5em;
+      animation: floatText 6s ease-in-out infinite;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    
+    .cat {
+      position: absolute;
+      bottom: 60px;
+      font-size: 1.5em;
+      white-space: nowrap;
+      animation: walkAcross 20s linear infinite;
+    }
+
+    @keyframes walkAcross {
+      0% { left: -100px; }
+      100% { left: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Eep Well! 💙🌙</h1>
+  <div class="cat">get some well deserved rest!! <3</div>
+
+  <script>
+    // Create stars randomly
+    for (let i = 0; i < 30; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
